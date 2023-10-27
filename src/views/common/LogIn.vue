@@ -1,24 +1,11 @@
-<<<<<<< HEAD
-<!-- eslint-disable prettier/prettier -->
-/* eslint-disable */
-// eslint-disable-next-line vue/multi-word-component-names
 <template>
-    <!-- <v-app> -->
-=======
-<template>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
     <v-layout id="layout" class="rounded-md">
         <v-app-bar id="app-bar" color="rgba(241, 244, 254, 1)">
             <v-row align="center">
                 <v-col cols="auto">
                     <!-- Image on the left, 10px from the left corner -->
-<<<<<<< HEAD
-                    <v-img src="/src/assets/survey-y-logo.png" alt="Your Image"
-                        style="margin-left: 10px; height: 40px; width: 90px"></v-img>
-=======
                     <router-link to="/"><v-img src="/src/assets/survey-y-logo.png" alt="Your Image"
                         style="margin-left: 10px; height: 40px; width: 90px"></v-img></router-link>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
                 </v-col>
                 <v-spacer></v-spacer>
                 <v-col cols="auto">
@@ -35,13 +22,8 @@
             <v-navigation-drawer location="right">
                 <v-list>
                     <v-list-item>
-<<<<<<< HEAD
-                        <v-img id="right-bg" src="/src/assets/right-bg.png" alt="Your Image" class="mt-0" style="height: 100%; min-height: 640px; width: 100%"
-                            cover>
-=======
                         <v-img id="right-bg" src="/src/assets/right-bg.png" alt="Your Image" class="mt-0"
                             style="height: 100%; min-height: 640px; width: 100%" cover>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
                         </v-img>
                     </v-list-item>
                 </v-list>
@@ -73,41 +55,27 @@
                         <div class="row-content">
                             <v-sheet width="400" class="mx-auto">
                                 <v-form fast-fail @submit.prevent="login">
-<<<<<<< HEAD
-                                    <v-text-field v-model="email" label="E-mail"></v-text-field>
-                                    <v-text-field v-model="password" label="Password" type="password"></v-text-field>
-=======
                                     <v-text-field v-model="email" label="E-mail" type="email" :rules="emailRules">
                                     </v-text-field>
 
                                     <v-text-field v-model="password" label="Password" type="password"
                                         :rules="passwordRules">
                                     </v-text-field>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
                                     <div style="display: flex">
                                         <v-row max-width="100%" width="500">
                                             <v-col cols="14" md="6" class="pb-0">
                                                 <v-checkbox label="Remember Me"></v-checkbox>
                                             </v-col>
                                             <v-col cols="14" md="6">
-<<<<<<< HEAD
-                                                <v-card-text class="align-center justify-center"><a href="#"
-                                                        class="text-body-2 font-weight-regular">Forgot
-                                                        Password?</a></v-card-text>
-=======
                                                 <v-card-text class="align-center justify-center"><router-link to="/forgot-password"
                                                         class="text-body-2 font-weight-regular">Forgot
                                                         Password?</router-link></v-card-text>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
                                             </v-col>
                                         </v-row>
                                     </div>
                                     <v-btn type="submit" block class="mt-4 mb-0 custom-button" color="blue"
                                         variant="outlined" position="relative">Submit</v-btn>
-<<<<<<< HEAD
-=======
                                         <!-- <p>{{ this.$store.getters.getSessionData }}</p> -->
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
                                 </v-form>
                             </v-sheet>
                         </div>
@@ -117,12 +85,6 @@
             </v-main>
         </v-content>
     </v-layout>
-<<<<<<< HEAD
-    <!-- </v-app> -->
-</template>
-// eslint-disable-next-line
-<script>
-=======
 </template>
 
 
@@ -130,30 +92,11 @@
 import axios from "axios";
 import { server } from "../../helper";
 
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
 export default {
     name: "Login",
     data() {
         return {
             email: "",
-<<<<<<< HEAD
-            password: "",
-        };
-    },
-    methods: {
-        login() {
-            // login for demonstration purposes
-            const email = this.email;
-            const password = this.password;
-
-            if (email === "user@survey.com" && password === "pass") {
-                this.$router.push({ name: "dashboard-collector" }); // Navigate to dashboard
-            } else {
-                // Handle login failure
-                console.error("Login failed!");
-            }
-        },
-=======
 
             password: "",
             
@@ -229,7 +172,6 @@ export default {
         forgotPassword() {
             this.$router.push({ name: 'forgot-password' });
         }
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
     },
 };
 </script>
@@ -269,8 +211,4 @@ export default {
 #layout {
     align-items: center;
 }
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> c02142b18d14bf0aabac6db4a56147648741a34f
