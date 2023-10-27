@@ -12,7 +12,7 @@
           {{ link }}
         </v-btn>
         <v-col class="text-center" cols="12">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} — <strong>Survey Y</strong>
         </v-col>
       </v-row>
     </v-footer>

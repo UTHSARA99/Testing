@@ -1,5 +1,3 @@
-<!-- eslint-disable prettier/prettier -->
-<!-- eslint-disable vue/valid-template-root -->
 <template>
     <!-- <v-app> -->
     <!-- <v-layout class="rounded rounded-md"> -->
@@ -9,7 +7,7 @@
         <v-row style="height: 100px;">
           <v-col>
             <div class="content-box">
-              <v-img src="../assets/survey-y-logo.png" class="mx-auto" style="width: 100px; height: 60px;"></v-img>
+              <v-img src="../../../src/assets/survey-y-logo.png" class="mx-auto" style="width: 100px; height: 60px;"></v-img>
             </div>
           </v-col>
         </v-row>
@@ -23,9 +21,9 @@
                 <!--Profile image goes here-->
                 <v-img src="/src/assets/pro-img.svg" class="mx-auto" style="width: 100px; height: 100px;"></v-img>
                 <v-card-text>
-                  <h4>John de Gone</h4>
+                  <h4>{{ userName = (this.$store.getters.getSessionData.user.fname + " " + this.$store.getters.getSessionData.user.lname) }}</h4>
                 </v-card-text>
-                <v-card-subtitle>Research Owner</v-card-subtitle>
+                <v-card-subtitle>{{ role = (this.$store.getters.getSessionData.user.roleId === 1) ? 'Research Owner' : 'Research Data Collector' }}</v-card-subtitle>
               </v-card>
             </div>
           </v-col>
@@ -59,12 +57,12 @@
                   </v-list-item>
                 </router-link>
   
-                <router-link to="/dashboard-research-owner/data-visualization" style="text-decoration: none;">
+                <!-- <router-link to="/dashboard-research-owner/data-visualization" style="text-decoration: none;">
                   <v-list-item
                     prepend-icon="mdi-chart-histogram" class="pl-0 pr-0" title="Data Visualization" value="data-visualize"
                     style="font-size: xx-small;">
                   </v-list-item>
-                </router-link>
+                </router-link> -->
   
               </v-list>
             </div>
@@ -76,19 +74,14 @@
     <v-app-bar>
       <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-menu v-model="menu" offset-y>
-        <template v-slot:activator="{ props }">
-          <v-btn color="blue" icon="mdi-account" size="large" v-bind="props"></v-btn>
-        </template>
+
+      <v-btn id="menu-activator" color="blue" icon="mdi-account" size="large">
+      </v-btn>
+
+      <v-menu activator="#menu-activator">
         <v-list>
-          <v-list-item>
-            <router-link style="text-decoration: none; color: black;" to="/dashboard/settings"
-              @click="menuItemClicked('Update Profile Detsils')">Update
-              Profile</router-link>
-          </v-list-item>
-          <v-list-item>
-            <router-link style="text-decoration: none; color: black;" to="/" @click="menuItemClicked('back to login')">Log
-              Out</router-link>
+          <v-list-item v-for="(item, index) in items" :key="index" :value="index">
+            <v-list-item-title @click="navigateToPage(item.route)">{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -110,7 +103,14 @@
     data: () => ({
       drawer: true,
       menu: false,
-    
+      userName: "",
+      // this.$store.getters.getSessionData.user.userName
+      role: "",
+      // (this.$store.getters.getSessionData.user.roleId === 1) ? 'Research Owner' : 'Research Data Collector'
+      items: [
+        { title: 'Update Profile', route: "/dashboard-research-owner/update-profile-1"},
+        { title: 'Log Out', route: "/"},
+      ],
       
     }),
   
@@ -118,10 +118,20 @@
       toggleDrawer() {
         this.drawer = !this.drawer;
       },
-      menuItemClicked(item) {
-        // Handle menu item click
-        console.log(`Clicked: ${item}`);
-      },
+      
+      navigateToPage(route) {
+      // Use the Vue Router to navigate to the selected page
+      if(route === "/") {
+        this.$store.dispatch("setSessionData", "null");
+        this.$store.dispatch("setLoginStatus", false);
+        // console.log(this.$store.getters.getLoginStatus);
+        // console.log(this.$store.getters.getSessionData);
+        this.$router.push(route);
+
+      }else{
+      this.$router.push(route);
+      }
+    },
     },
   };
   </script>
