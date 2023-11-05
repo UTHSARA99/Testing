@@ -5,7 +5,7 @@
                 <v-row align="center">
                     <v-col cols="auto">
                         <!-- Image on the left, 10px from the left corner -->
-                        <router-link to="/"><v-img src="@/assets/survey-y-logo.png" alt="Your Image"
+                        <router-link to="/"><v-img src="/Images/survey-y-logo.png" alt="Your Image"
                                 style="margin-left: 50px; height: 40px; width: 90px"></v-img></router-link>
                     </v-col>
                     <v-spacer></v-spacer>
@@ -22,7 +22,7 @@
 
 
             <!-- <div class="main_content"> -->
-            <v-img src="/src/assets/survey-data-collecting-background.png" alt="Your Image" class="main_content_img"
+            <v-img src="/Images/survey-data-collecting-background.png" alt="Your Image" class="main_content_img"
                 cover></v-img>
             <v-container fluid class="d-flex align-center justify-center" style="height: 100vh; width: 100vh;">
 
