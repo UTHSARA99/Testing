@@ -22,7 +22,7 @@
             <v-navigation-drawer location="right">
                 <v-list>
                     <v-list-item>
-                        <v-img id="right-bg" src="/src/assets/right-bg.png" alt="Your Image" class="mt-0"
+                        <v-img id="right-bg" src="/Images/right-bg.png" alt="Your Image" class="mt-0"
                             style="height: 100%; min-height: 640px; width: 100%" cover>
                         </v-img>
                     </v-list-item>
